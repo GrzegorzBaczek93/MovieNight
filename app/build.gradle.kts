@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -28,7 +30,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -53,7 +55,7 @@ android {
 }
 
 composeCompiler {
-    enableStrongSkippingMode = true
+    featureFlags.add(ComposeFeatureFlag.StrongSkipping)
 }
 
 dependencies {
@@ -64,11 +66,18 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.text.font)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
     implementation(libs.dagger.hilt.android)
     ksp(libs.dagger.hilt.compiler)
+
+    implementation(platform(libs.okhttp.bom))
+    implementation(libs.okhttp.client)
+
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network)
 
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.compose.destinations.core)

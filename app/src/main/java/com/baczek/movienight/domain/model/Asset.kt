@@ -1,6 +1,6 @@
 package com.baczek.movienight.domain.model
 
-data class Movie(
+data class Asset(
     val id: Int,
     val title: String,
     val description: String,
@@ -9,11 +9,11 @@ data class Movie(
     val watched: Boolean,
 )
 
-private val mockedMovies = List(size = 10) {
-    Movie(
+private val mockedAssets = List(size = 10) {
+    Asset(
         id = it,
-        title = "Mocked movie #$it",
-        description = "Mocked movie description #$it",
+        title = "Mocked asset #$it",
+        description = "Mocked asset description #$it",
         image = "https://musicart.xboxlive.com/7/e28e1100-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080",
         rating = it % 5,
         watched = it % 2 == 0,
@@ -21,6 +21,6 @@ private val mockedMovies = List(size = 10) {
 }
 
 
-fun generateMockedMovies() = mockedMovies
+fun generateMockedAssets() = mockedAssets
 
-fun getMovie(index: Int) = mockedMovies.getOrNull(index)
+fun getAsset(index: Int) = mockedAssets.getOrNull(index)

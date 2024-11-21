@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.baczek.movienight.domain.model.Movie
+import com.baczek.movienight.domain.model.Asset
 import com.baczek.movienight.ui.component.FullScreenLoader
 import com.baczek.movienight.ui.component.MovieListItem
 import com.baczek.movienight.ui.screen.details.navigateToDetails
@@ -41,7 +41,7 @@ fun MainScreen(
         ) {
             when (uiState) {
                 is MainViewModel.MainUiState.Success -> SuccessScreen(
-                    movies = uiState.movies,
+                    assets = uiState.assets,
                     navigateToDetails = navigator::navigateToDetails,
                 )
                 MainViewModel.MainUiState.Loading -> LoadingScreen()
@@ -53,7 +53,7 @@ fun MainScreen(
 
 @Composable
 private fun SuccessScreen(
-    movies: List<Movie>,
+    assets: List<Asset>,
     navigateToDetails: (Int) -> Unit,
 ) {
     LazyColumn(
@@ -63,7 +63,7 @@ private fun SuccessScreen(
             .padding(12.dp),
         verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
-        items(items = movies) { movie ->
+        items(items = assets) { movie ->
             MovieListItem(
                 modifier = Modifier.height(64.dp),
                 data = movie,

@@ -2,8 +2,8 @@ package com.baczek.movienight.ui.screen.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.baczek.movienight.domain.model.Movie
-import com.baczek.movienight.domain.model.generateMockedMovies
+import com.baczek.movienight.domain.model.Asset
+import com.baczek.movienight.domain.model.generateMockedAssets
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,14 +22,14 @@ class MainViewModel @Inject constructor() : ViewModel() {
             delay(3000L)
             _uiState.value =
                 MainUiState.Success(
-                    movies = generateMockedMovies(),
+                    assets = generateMockedAssets(),
                 )
         }
     }
 
     sealed interface MainUiState {
         data class Success(
-            val movies: List<Movie>,
+            val assets: List<Asset>,
         ) : MainUiState
 
         data object Loading : MainUiState

@@ -8,14 +8,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.baczek.movienight.domain.model.Movie
-import com.baczek.movienight.domain.model.generateMockedMovies
+import com.baczek.movienight.domain.model.Asset
+import com.baczek.movienight.domain.model.generateMockedAssets
 import com.baczek.movienight.ui.theme.MovieNightTheme
 
 @Composable
 fun MovieListItem(
     modifier: Modifier = Modifier,
-    data: Movie,
+    data: Asset,
     onClick: (Int) -> Unit,
 ) {
     ListItem(
@@ -41,7 +41,7 @@ fun MovieListItem(
 @Composable
 private fun MovieListItemPreview() {
     MovieNightTheme {
-        val mock = generateMockedMovies().first()
+        val mock = generateMockedAssets().first()
         MovieListItem(
             data = mock,
             onClick = {},

@@ -1,7 +1,7 @@
 package com.baczek.movienight.ui.screen.details
 
 import androidx.lifecycle.ViewModel
-import com.baczek.movienight.domain.model.Movie
+import com.baczek.movienight.domain.model.Asset
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -9,7 +9,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import javax.inject.Inject
 
 @HiltViewModel(assistedFactory = DetailsViewModel.Factory::class)
 class DetailsViewModel @AssistedInject constructor(
@@ -26,7 +25,7 @@ class DetailsViewModel @AssistedInject constructor(
 
     sealed interface DetailsUiState {
         data class Success(
-            val movie: Movie,
+            val asset: Asset,
         )
 
         data object Loading : DetailsUiState

@@ -14,7 +14,7 @@ import coil3.compose.rememberAsyncImagePainter
 import com.baczek.movienight.R
 
 @Composable
-fun MovieImage(
+fun AssetImage(
     modifier: Modifier = Modifier,
     url: String,
 ) {

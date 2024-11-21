@@ -19,7 +19,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.baczek.movienight.domain.model.Asset
 import com.baczek.movienight.ui.component.FullScreenLoader
-import com.baczek.movienight.ui.component.MovieListItem
+import com.baczek.movienight.ui.component.AssetListItem
 import com.baczek.movienight.ui.screen.details.navigateToDetails
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootGraph
@@ -64,7 +64,7 @@ private fun SuccessScreen(
         verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         items(items = assets) { movie ->
-            MovieListItem(
+            AssetListItem(
                 modifier = Modifier.height(64.dp),
                 data = movie,
                 onClick = {

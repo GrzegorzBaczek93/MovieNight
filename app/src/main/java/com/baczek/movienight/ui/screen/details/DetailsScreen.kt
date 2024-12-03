@@ -28,7 +28,7 @@ fun DetailsScreen(
                 .padding(paddingValues)
                 .consumeWindowInsets(paddingValues),
         ) {
-            Text(text = "Details Screen ${viewModel.movieId}")
+            Text(text = "Details Screen $id")
         }
     }
 }

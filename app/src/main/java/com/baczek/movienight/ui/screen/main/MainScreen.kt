@@ -68,7 +68,6 @@ private fun SuccessScreen(
                 modifier = Modifier.height(64.dp),
                 data = movie,
                 onClick = {
-                    println("UI_DEBUG $movie")
                     navigateToDetails(movie.id)
                 },
             )

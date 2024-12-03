@@ -1,6 +1,9 @@
 package com.baczek.movienight.data.model.asset
 
-data class AssetImageResponse(
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class AssetImageSetVerticalResponse(
     val w240: String,
     val w360: String,
     val w480: String,

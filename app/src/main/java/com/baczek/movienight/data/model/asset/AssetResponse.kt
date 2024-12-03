@@ -1,5 +1,8 @@
 package com.baczek.movienight.data.model.asset
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class AssetResponse(
     val id: String,
     val showType: String,

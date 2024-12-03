@@ -75,9 +75,6 @@ dependencies {
     implementation(libs.dagger.hilt.android)
     ksp(libs.dagger.hilt.compiler)
 
-    implementation(platform(libs.okhttp.bom))
-    implementation(libs.okhttp.client)
-
     implementation(libs.coil.compose)
     implementation(libs.coil.network)
 
@@ -88,6 +85,12 @@ dependencies {
     implementation(libs.jetbrains.kotlinx.serialization)
     implementation(libs.jetbrains.kotlinx.coroutines.core)
     implementation(libs.jetbrains.kotlinx.coroutines.android)
+
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.client.serialization.json)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

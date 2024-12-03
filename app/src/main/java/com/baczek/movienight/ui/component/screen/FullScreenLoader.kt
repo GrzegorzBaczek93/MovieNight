@@ -1,4 +1,4 @@
-package com.baczek.movienight.ui.component
+package com.baczek.movienight.ui.component.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

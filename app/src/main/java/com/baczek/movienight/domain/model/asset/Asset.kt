@@ -1,4 +1,4 @@
-package com.baczek.movienight.domain.model
+package com.baczek.movienight.domain.model.asset
 
 data class Asset(
     val id: Int,

@@ -1,4 +1,4 @@
-package com.baczek.movienight.ui.component
+package com.baczek.movienight.ui.component.asset
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material3.ListItem
@@ -8,7 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.baczek.movienight.domain.model.Asset
+import com.baczek.movienight.domain.model.asset.Asset
 import com.baczek.movienight.ui.theme.MovieNightTheme
 
 @Composable

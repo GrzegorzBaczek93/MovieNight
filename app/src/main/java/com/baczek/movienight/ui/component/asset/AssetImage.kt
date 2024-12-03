@@ -1,4 +1,4 @@
-package com.baczek.movienight.ui.component
+package com.baczek.movienight.ui.component.asset
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box

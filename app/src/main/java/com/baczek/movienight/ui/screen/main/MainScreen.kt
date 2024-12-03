@@ -2,30 +2,27 @@ package com.baczek.movienight.ui.screen.main
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.baczek.movienight.domain.model.Asset
-import com.baczek.movienight.ui.component.FullScreenLoader
-import com.baczek.movienight.ui.component.AssetListItem
+import com.baczek.movienight.domain.model.asset.Asset
+import com.baczek.movienight.ui.component.asset.AssetListItem
+import com.baczek.movienight.ui.component.screen.FullScreenError
+import com.baczek.movienight.ui.component.screen.FullScreenLoader
 import com.baczek.movienight.ui.screen.details.navigateToDetails
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
-@Destination<RootGraph>(start = true)
+@Destination<RootGraph>
 @Composable
 fun MainScreen(
     navigator: DestinationsNavigator,
@@ -33,21 +30,14 @@ fun MainScreen(
 ) {
     val uiState = viewModel.uiState.collectAsStateWithLifecycle().value
 
-    Scaffold { paddingValues ->
-        Box(
-            modifier = Modifier
-                .padding(paddingValues)
-                .consumeWindowInsets(paddingValues),
-        ) {
-            when (uiState) {
-                is MainViewModel.MainUiState.Success -> SuccessScreen(
-                    assets = uiState.assets,
-                    navigateToDetails = navigator::navigateToDetails,
-                )
-                MainViewModel.MainUiState.Loading -> LoadingScreen()
-                MainViewModel.MainUiState.Error -> ErrorScreen()
-            }
-        }
+    when (uiState) {
+        is MainViewModel.UiState.Success -> SuccessScreen(
+            assets = uiState.assets,
+            navigateToDetails = navigator::navigateToDetails,
+        )
+
+        MainViewModel.UiState.Loading -> LoadingScreen()
+        MainViewModel.UiState.Error -> ErrorScreen()
     }
 }
 
@@ -82,5 +72,9 @@ private fun LoadingScreen() {
 
 @Composable
 private fun ErrorScreen() {
-    Text(text = "MainScreen.Error")
+    FullScreenError(
+        text = "Wystąpił błąd",
+        buttonText = "Odśwież",
+        onClick = {  }
+    )
 }
